@@ -1,6 +1,6 @@
 import tkinter
-from settings import *
-from plotter import Plot
+from configs.config import *
+from components.plotter import Plot
 
 
 class App(tkinter.Frame):
@@ -17,9 +17,9 @@ class App(tkinter.Frame):
         self.entry = tkinter.Entry(input_area, width=30, font=FONT)
         self.entry.pack(side='left')
 
-        self.btn = tkinter.Button(input_area, width=10, text="ADD", bg='green', fg='white', command=self.plot_function_graph)
+        self.btn = tkinter.Button(input_area, width=10, text="ADD", bg='green', fg='white',
+                                  command=self.plot_function_graph)
         self.btn.pack(side='left')
 
     def plot_function_graph(self):
         print('-', self.entry.get())
-

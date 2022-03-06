@@ -1,5 +1,5 @@
-from application import App
-from settings import *
+from components.application import App
+from configs.config import *
 
 if __name__ == '__main__':
     myapp = App()

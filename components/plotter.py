@@ -1,6 +1,6 @@
 import random
 import tkinter
-from settings import *
+from configs.config import *
 
 
 class Plot(tkinter.Canvas):
@@ -23,4 +23,4 @@ class Plot(tkinter.Canvas):
     def make_circle(self, event):
         x = random.randint(10, 400)
         y = random.randint(10, 400)
-        self.create_oval(x,y,x+30,y+30,fill='red')
+        self.create_oval(x, y, x + 30, y + 30, fill='red')
