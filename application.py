@@ -1,23 +1,25 @@
 import tkinter
+from settings import *
 from plotter import Plot
 
 
 class App(tkinter.Frame):
     def __init__(self, master=None):
-        super().__init__(master)
-        self.graph = Plot(self)
-        self.graph.pack(padx=10, pady=10, side='top')
-        self.master.minsize(600, 400)
+        super().__init__(master, bg=PLOT_BG_COLOR)
         self.pack()
-        self.addInputField()
 
-    def addInputField(self):
+        self.plot = Plot(self)
+        self.plot.pack(side='top')
 
-        input_zone = tkinter.Frame(self)
-        input_zone.pack(padx=10, pady=30, side='bottom')
+        input_area = tkinter.Frame(self, bg=PLOT_BG_COLOR)
+        input_area.pack(side='bottom', pady=25)
 
-        self.entry = tkinter.Entry(input_zone, width=50)
+        self.entry = tkinter.Entry(input_area, width=30, font=FONT)
         self.entry.pack(side='left')
 
-        self.btn = tkinter.Button(input_zone, width=10, text="ADD", bg='green', fg='white', border=None)
-        self.btn.pack(side='left', padx=10)
+        self.btn = tkinter.Button(input_area, width=10, text="ADD", bg='green', fg='white', command=self.plot_function_graph)
+        self.btn.pack(side='left')
+
+    def plot_function_graph(self):
+        print('-', self.entry.get())
+
