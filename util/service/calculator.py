@@ -121,6 +121,7 @@ def fusion(nums_stack: list, operation_stack: list):
     n2 = nums_stack.pop()
     n1 = nums_stack.pop()
     operation = operation_stack.pop()
+
     if operation == '+':
         nums_stack.append(n1 + n2)
     if operation == '-':
@@ -128,6 +129,9 @@ def fusion(nums_stack: list, operation_stack: list):
     if operation == '*':
         nums_stack.append(n1 * n2)
     if operation == '/':
-        nums_stack.append(n1 / n2)
+        try:
+            nums_stack.append(n1 / n2)
+        except ZeroDivisionError:
+            nums_stack.append()
     if operation == '^':
         nums_stack.append(pow(n1, n2))
