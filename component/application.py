@@ -16,7 +16,8 @@ class App(tkinter.Frame):
         self.entry = tkinter.Entry(input_area, width=30, font=FONT)
         self.btn = tkinter.Button(input_area, width=10, text="ADD", bg='#475', fg='white',
                                   command=self.plot_function_graph)
-
+        self.master.title(WINDOW_NAME)
+        self.master.maxsize(MAX_WINDOW_WIDTH, MAX_WINDOW_HEIGHT)
         top_area.pack()
         input_area.pack()
         self.plot.pack(side='left')
@@ -25,4 +26,6 @@ class App(tkinter.Frame):
         self.btn.pack(side='left')
 
     def plot_function_graph(self):
-        print('-', self.entry.get())
+        f = Function(self.entry.get())
+
+        self.plot.draw_function(f)

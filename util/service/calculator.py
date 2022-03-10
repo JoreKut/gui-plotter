@@ -132,6 +132,9 @@ def fusion(nums_stack: list, operation_stack: list):
         try:
             nums_stack.append(n1 / n2)
         except ZeroDivisionError:
-            nums_stack.append()
+            if n1 > 0:
+                nums_stack.append(float('inf'))
+            else:
+                nums_stack.append(float('-inf'))
     if operation == '^':
         nums_stack.append(pow(n1, n2))
