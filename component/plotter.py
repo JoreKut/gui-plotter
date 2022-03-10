@@ -1,8 +1,6 @@
 import tkinter
 from configuration.config import *
-from util.model.point import Point
 from util.model.function import Function
-from util.model.reference_system import ReferenceSystem
 from util.model.vector import Vector
 
 class Plot(tkinter.Canvas):
